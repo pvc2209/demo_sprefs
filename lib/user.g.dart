@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'card_model2.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
