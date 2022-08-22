@@ -71,9 +71,7 @@ class _HomePageState extends State<HomePage> {
                 trailing: IconButton(
                   icon: const Icon(Icons.delete),
                   onPressed: () {
-                    setState(() {
-                      _deleteCard(card);
-                    });
+                    _deleteCard(card);
                   },
                 ),
               ),
