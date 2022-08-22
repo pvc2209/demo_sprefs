@@ -4,7 +4,7 @@ import 'package:uuid/uuid.dart';
 /// This allows the `User` class to access private members in
 /// the generated file. The value for this is *.g.dart, where
 /// the star denotes the source file name.
-part 'user.g.dart';
+part 'card_model2.g.dart';
 
 Uuid uuid = const Uuid();
 
@@ -12,26 +12,20 @@ Uuid uuid = const Uuid();
 /// JSON serialization logic to be generated.
 @JsonSerializable()
 class CardModel2 {
-  CardModel2(
+  CardModel2({
     String? id,
-    this.title,
-    this.color,
-    this.dateTime,
-  ) : id = id ?? uuid.v4();
+    required this.title,
+    required this.color,
+    required this.dateTime,
+  }) : id = id ?? uuid.v4();
 
   final String id;
   final String title;
   final int color;
   final DateTime dateTime;
 
-  /// A necessary factory constructor for creating a new User instance
-  /// from a map. Pass the map to the generated `_$UserFromJson()` constructor.
-  /// The constructor is named after the source class, in this case, User.
   factory CardModel2.fromJson(Map<String, dynamic> json) =>
-      _$UserFromJson(json);
+      _$CardModel2FromJson(json);
 
-  /// `toJson` is the convention for a class to declare support for serialization
-  /// to JSON. The implementation simply calls the private, generated
-  /// helper method `_$UserToJson`.
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  Map<String, dynamic> toJson() => _$CardModel2ToJson(this);
 }

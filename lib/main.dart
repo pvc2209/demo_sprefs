@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:intl/intl.dart';
 
+import 'card_model2.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -49,7 +51,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _getCardList() async {
-    final List<CardModel> cards = await SPrefData.getList();
+    final List<CardModel2> cards = await SPrefData.getList();
     setState(() {
       cardWidgets = cards
           .map(
@@ -81,12 +83,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void _saveCard(CardModel card) async {
+  void _saveCard(CardModel2 card) async {
     await SPrefData.addCardToList(card);
     _getCardList();
   }
 
-  void _deleteCard(CardModel card) async {
+  void _deleteCard(CardModel2 card) async {
     await SPrefData.removeCardFromList(card);
     _getCardList();
   }
@@ -149,7 +151,7 @@ class _HomePageState extends State<HomePage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  final CardModel card = CardModel(
+                  final CardModel2 card = CardModel2(
                     title: _controller.text,
                     color: _currentColor.value,
                     dateTime: DateTime.now(),
