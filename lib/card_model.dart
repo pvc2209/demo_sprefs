@@ -4,13 +4,13 @@ import 'helpers.dart';
 
 Uuid uuid = const Uuid();
 
-class MyCard {
+class CardModel {
   final String id;
   final String title;
   final int color;
   final DateTime dateTime;
 
-  MyCard({
+  CardModel({
     String? id,
     required this.title,
     required this.color,
@@ -26,8 +26,8 @@ class MyCard {
     };
   }
 
-  factory MyCard.fromMap(Map<String, dynamic> map) {
-    return MyCard(
+  factory CardModel.fromMap(Map<String, dynamic> map) {
+    return CardModel(
       id: map['id'] ?? '',
       title: map['title'] ?? '',
       color: map['color']?.toInt() ?? 0,
@@ -38,8 +38,8 @@ class MyCard {
 
   String toJson() => json.encode(toMap());
 
-  factory MyCard.fromJson(String source) =>
-      MyCard.fromMap(jsonDecodeSafe(source) ?? <String, dynamic>{});
+  factory CardModel.fromJson(String source) =>
+      CardModel.fromMap(jsonDecodeSafe(source) ?? <String, dynamic>{});
 
   @override
   String toString() =>

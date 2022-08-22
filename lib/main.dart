@@ -1,4 +1,4 @@
-import 'package:demo_share_preferences/my_card.dart';
+import 'package:demo_share_preferences/card_model.dart';
 import 'package:demo_share_preferences/sprefs_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _getCardList() async {
-    final List<MyCard> cards = await SPrefData.getList();
+    final List<CardModel> cards = await SPrefData.getList();
     setState(() {
       cardWidgets = cards
           .map(
@@ -83,12 +83,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void _saveCard(MyCard card) async {
+  void _saveCard(CardModel card) async {
     await SPrefData.addCardToList(card);
     _getCardList();
   }
 
-  void _deleteCard(MyCard card) async {
+  void _deleteCard(CardModel card) async {
     await SPrefData.removeCardFromList(card);
     _getCardList();
   }
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  final MyCard card = MyCard(
+                  final CardModel card = CardModel(
                     title: _controller.text,
                     color: _currentColor.value,
                     dateTime: DateTime.now(),
