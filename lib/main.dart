@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 tileColor: Color(card.color),
                 subtitle: Text(
-                  DateFormat('dd-MM-yyyy').format(card.dateTime),
+                  DateFormat('dd-MM-yyyy HH:mm').format(card.dateTime),
                   style: const TextStyle(
                     color: Colors.white,
                   ),
